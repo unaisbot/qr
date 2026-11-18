@@ -71,3 +71,16 @@ footer{text-align:center;color:#9aa3b2;font-size:10px;padding:35px 0 10px}
 footer span{padding:0 5px}
 @media(max-width:800px){.workspace{grid-template-columns:1fr}.preview-column{position:static;grid-row:1}.preview-card{padding:17px}.qr-stage{width:min(75vw,280px);margin:18px auto}.page{padding-top:35px}}
 @media(max-width:480px){.topbar{height:60px;padding:0 18px}.top-note{font-size:10px}.page{padding-left:14px;padding-right:14px}.editor{padding:19px}.two-col{gap:9px}.hint{font-size:9px}.section-heading h2{font-size:14px}}
+
+
+/* Keep the complete QR SVG visible inside the preview frame. */
+#qrPreview svg {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100%;
+  max-height: 100%;
+}
+#qrPreview {
+  overflow: hidden;
+}
