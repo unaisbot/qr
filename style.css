@@ -69,8 +69,34 @@ button{font-family:'DM Sans',sans-serif;cursor:pointer}
 .tip-card p{font-size:10px;line-height:1.6;color:var(--muted);margin:4px 0 0}
 footer{text-align:center;color:#9aa3b2;font-size:10px;padding:35px 0 10px}
 footer span{padding:0 5px}
-@media(max-width:800px){.workspace{grid-template-columns:1fr}.preview-column{position:static;grid-row:1}.preview-card{padding:17px}.qr-stage{width:min(75vw,280px);margin:18px auto}.page{padding-top:35px}}
-@media(max-width:480px){.topbar{height:60px;padding:0 18px}.top-note{font-size:10px}.page{padding-left:14px;padding-right:14px}.editor{padding:19px}.two-col{gap:9px}.hint{font-size:9px}.section-heading h2{font-size:14px}}
+@media(max-width:800px){
+  .workspace{display:flex;flex-direction:column;gap:14px}
+  .editor{display:contents}
+  .preview-column{display:contents;position:static}
+  .mobile-content,.mobile-logo,.mobile-preview,.mobile-download,.mobile-appearance,.tip-card{order:initial}
+  .mobile-content{order:1}
+  .mobile-logo{order:2}
+  .mobile-preview{order:3}
+  .mobile-download{order:4}
+  .mobile-appearance{order:5}
+  .tip-card{order:6}
+  .content-section,.logo-section,.download-section,.appearance-section,.preview-card,.tip-card{width:100%;background:#fff;border:1px solid var(--line);border-radius:15px;padding:18px;box-shadow:0 8px 30px rgba(25,39,75,.035)}
+  .preview-column .tip-card{margin-top:0}
+  .preview-card{padding:17px}
+  .qr-stage{width:min(75vw,320px);margin:18px auto}
+  .page{padding-top:35px}
+  .section-heading.separated{margin-top:0}
+  .preview-heading{justify-content:flex-start;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:14px}
+}
+@media(max-width:480px){
+  .topbar{height:60px;padding:0 18px}
+  .top-note{font-size:10px}
+  .page{padding-left:14px;padding-right:14px}
+  .two-col{gap:9px}
+  .hint{font-size:9px}
+  .section-heading h2{font-size:14px}
+  .download-row{grid-template-columns:1fr 1fr}
+}
 
 
 /* Keep the complete QR SVG visible inside the preview frame. */

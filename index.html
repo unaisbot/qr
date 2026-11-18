@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#101827">
   <title>QR Studio – QR Code Generator</title>
-  <link rel="stylesheet" href="./style.css?v=2">
+  <link rel="stylesheet" href="./style.css?v=3">
   <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.9.2/lib/qr-code-styling.js"></script>
 </head>
 <body>
@@ -26,87 +26,93 @@
 
     <section class="workspace">
       <div class="panel editor">
-        <div class="section-heading">
-          <div><span class="step">01</span><h2>Content</h2></div>
-          <span class="hint">What should your QR open?</span>
-        </div>
-
-        <label for="contentType">Content type</label>
-        <select id="contentType">
-          <option value="url">Website / URL</option>
-          <option value="text">Plain text</option>
-          <option value="email">Email</option>
-          <option value="phone">Phone number</option>
-          <option value="sms">SMS message</option>
-          <option value="wifi">Wi-Fi network</option>
-        </select>
-
-        <div id="contentFields">
-          <label for="mainContent" id="contentLabel">Website address</label>
-          <textarea id="mainContent" rows="3" placeholder="https://example.com"></textarea>
-          <p class="field-help" id="contentHelp">Include https:// for the best compatibility.</p>
-        </div>
-
-        <div class="section-heading separated">
-          <div><span class="step">02</span><h2>Appearance</h2></div>
-          <span class="hint">Make it match your style</span>
-        </div>
-
-        <div class="two-col">
-          <div>
-            <label for="foreground">Foreground colour</label>
-            <div class="color-control"><input type="color" id="foreground" value="#172554"><input type="text" id="foregroundHex" value="#172554" maxlength="7" aria-label="Foreground HEX colour"></div>
+        <section class="content-section mobile-content">
+          <div class="section-heading">
+            <div><span class="step">01</span><h2>Content</h2></div>
+            <span class="hint">What should your QR open?</span>
           </div>
-          <div>
-            <label for="background">Background colour</label>
-            <div class="color-control"><input type="color" id="background" value="#ffffff"><input type="text" id="backgroundHex" value="#ffffff" maxlength="7" aria-label="Background HEX colour"></div>
+
+          <label for="contentType">Content type</label>
+          <select id="contentType">
+            <option value="url">Website / URL</option>
+            <option value="text">Plain text</option>
+            <option value="email">Email</option>
+            <option value="phone">Phone number</option>
+            <option value="sms">SMS message</option>
+            <option value="wifi">Wi-Fi network</option>
+          </select>
+
+          <div id="contentFields">
+            <label for="mainContent" id="contentLabel">Website address</label>
+            <textarea id="mainContent" rows="3" placeholder="https://example.com"></textarea>
+            <p class="field-help" id="contentHelp">Include https:// for the best compatibility.</p>
           </div>
-        </div>
+        </section>
 
-        <label for="dotStyle">QR pattern</label>
-        <select id="dotStyle">
-          <option value="square">Square</option>
-          <option value="dots">Dots</option>
-          <option value="rounded">Rounded</option>
-          <option value="extra-rounded">Extra rounded</option>
-          <option value="classy">Classy</option>
-          <option value="classy-rounded">Classy rounded</option>
-        </select>
+        <section class="logo-section mobile-logo">
+          <div class="section-heading separated">
+            <div><span class="step">02</span><h2>Add a logo</h2></div>
+            <span class="hint">Optional</span>
+          </div>
+          <label class="upload-box" for="logoUpload">
+            <span class="upload-icon">＋</span>
+            <span><strong>Choose a logo</strong><small>PNG, JPG or WEBP · Best with a square image</small></span>
+            <input type="file" id="logoUpload" accept="image/png,image/jpeg,image/webp">
+          </label>
+          <div class="logo-actions" id="logoActions" hidden>
+            <span id="logoName">Logo selected</span>
+            <button type="button" class="text-button" id="removeLogo">Remove logo</button>
+          </div>
+          <label class="check-row"><input type="checkbox" id="logoBackdrop" checked> Add a white space behind the logo</label>
+        </section>
 
-        <label for="cornerStyle">Corner style</label>
-        <select id="cornerStyle">
-          <option value="square">Square</option>
-          <option value="dot">Dot</option>
-          <option value="extra-rounded">Rounded</option>
-        </select>
+        <section class="download-section mobile-download">
+          <div class="section-heading separated">
+            <div><span class="step">04</span><h2>Download</h2></div>
+          </div>
+          <div class="download-row">
+            <button type="button" class="download-btn" id="downloadPng">Download PNG</button>
+            <button type="button" class="secondary-btn" id="downloadSvg">Download SVG</button>
+          </div>
+          <p class="privacy-note">Your content and uploaded logo are processed in your browser. Nothing is sent to a server by this page.</p>
+        </section>
 
-        <div class="section-heading separated">
-          <div><span class="step">03</span><h2>Add a logo</h2></div>
-          <span class="hint">Optional</span>
-        </div>
-        <label class="upload-box" for="logoUpload">
-          <span class="upload-icon">＋</span>
-          <span><strong>Choose a logo</strong><small>PNG, JPG or WEBP · Best with a square image</small></span>
-          <input type="file" id="logoUpload" accept="image/png,image/jpeg,image/webp">
-        </label>
-        <div class="logo-actions" id="logoActions" hidden>
-          <span id="logoName">Logo selected</span>
-          <button type="button" class="text-button" id="removeLogo">Remove logo</button>
-        </div>
-        <label class="check-row"><input type="checkbox" id="logoBackdrop" checked> Add a white space behind the logo</label>
-
-        <div class="section-heading separated">
-          <div><span class="step">04</span><h2>Download</h2></div>
-        </div>
-        <div class="download-row">
-          <button type="button" class="download-btn" id="downloadPng">Download PNG</button>
-          <button type="button" class="secondary-btn" id="downloadSvg">Download SVG</button>
-        </div>
-        <p class="privacy-note">Your content and uploaded logo are processed in your browser. Nothing is sent to a server by this page.</p>
+        <section class="appearance-section mobile-appearance">
+          <div class="section-heading separated">
+            <div><span class="step">05</span><h2>Colours &amp; styles</h2></div>
+            <span class="hint">Make it match your style</span>
+          </div>
+          <div class="two-col">
+            <div>
+              <label for="foreground">Foreground colour</label>
+              <div class="color-control"><input type="color" id="foreground" value="#172554"><input type="text" id="foregroundHex" value="#172554" maxlength="7" aria-label="Foreground HEX colour"></div>
+            </div>
+            <div>
+              <label for="background">Background colour</label>
+              <div class="color-control"><input type="color" id="background" value="#ffffff"><input type="text" id="backgroundHex" value="#ffffff" maxlength="7" aria-label="Background HEX colour"></div>
+            </div>
+          </div>
+          <label for="dotStyle">QR pattern</label>
+          <select id="dotStyle">
+            <option value="square">Square</option>
+            <option value="dots">Dots</option>
+            <option value="rounded">Rounded</option>
+            <option value="extra-rounded">Extra rounded</option>
+            <option value="classy">Classy</option>
+            <option value="classy-rounded">Classy rounded</option>
+          </select>
+          <label for="cornerStyle">Corner style</label>
+          <select id="cornerStyle">
+            <option value="square">Square</option>
+            <option value="dot">Dot</option>
+            <option value="extra-rounded">Rounded</option>
+          </select>
+        </section>
       </div>
 
       <aside class="preview-column">
-        <div class="preview-card">
+        <div class="preview-card mobile-preview">
+          <div class="section-heading preview-heading"><div><span class="step">03</span><h2>QR code preview</h2></div></div>
           <div class="preview-top"><span class="live-dot"></span> LIVE PREVIEW <span class="preview-size">1000 × 1000</span></div>
           <div class="qr-stage"><div id="qrPreview" aria-label="Generated QR code preview"></div></div>
           <h3>Your QR code</h3>
@@ -118,6 +124,6 @@
     </section>
     <footer>QR Studio <span>·</span> A simple browser-based QR code maker</footer>
   </main>
-  <script src="./script.js?v=2"></script>
+  <script src="./script.js?v=3"></script>
 </body>
 </html>
