@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TBARC QR Code Generator</title>
+  <meta name="description" content="Generate QR codes for TBARC document verification.">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="brand">TBARC</div>
+    <div class="tagline">Tropical Biodiversity and Research Organisation</div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>QR Code Generator</h1>
+      <p class="subtitle">Generate verification QR codes for official TBARC documents.</p>
+
+      <label for="documentId">Document ID</label>
+      <input
+        type="text"
+        id="documentId"
+        placeholder="Example: TBARC-MEM-001"
+        autocomplete="off"
+      >
+
+      <label>Verification URL</label>
+      <div class="url-box" id="verificationUrl">
+        Enter a document ID to generate the URL.
+      </div>
+
+      <div id="qrContainer" class="qr-container">
+        <p>Your QR code will appear here.</p>
+      </div>
+
+      <button id="downloadBtn" disabled>Download QR Code (PNG)</button>
+
+      <p id="message" class="message"></p>
+    </section>
+  </main>
+
+  <footer>
+    © TBARC | Document Verification
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
